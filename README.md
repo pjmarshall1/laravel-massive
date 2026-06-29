@@ -164,6 +164,26 @@ $allQuotes = Massive::stocks()->quotes()->historical('AAPL', [
 $latestQuote = Massive::stocks()->quotes()->latest('AAPL');
 ```
 
+### Indicators
+
+```php
+$sma = Massive::stocks()->indicators()->sma('AAPL', [
+    'timespan' => 'day',
+]);
+
+$ema = Massive::stocks()->indicators()->ema('AAPL', [
+    'timespan' => 'day',
+]);
+
+$macd = Massive::stocks()->indicators()->macd('AAPL', [
+    'timespan' => 'day',
+]);
+
+$rsi = Massive::stocks()->indicators()->rsi('AAPL', [
+    'timespan' => 'day',
+]);
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -181,6 +201,10 @@ $trades = Massive::historicalTrades('AAPL');
 $latestTrade = Massive::latestTrade('AAPL');
 $quotes = Massive::historicalQuotes('AAPL');
 $latestQuote = Massive::latestQuote('AAPL');
+$sma = Massive::sma('AAPL');
+$ema = Massive::ema('AAPL');
+$macd = Massive::macd('AAPL');
+$rsi = Massive::rsi('AAPL');
 ```
 
 ## Error Handling

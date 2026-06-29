@@ -181,6 +181,50 @@ class Massive
     }
 
     /**
+     * Retrieve the simple moving average for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function sma(string $ticker, array $query = []): array
+    {
+        return $this->stocks()->indicators()->sma($ticker, $query);
+    }
+
+    /**
+     * Retrieve the exponential moving average for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function ema(string $ticker, array $query = []): array
+    {
+        return $this->stocks()->indicators()->ema($ticker, $query);
+    }
+
+    /**
+     * Retrieve the moving average convergence/divergence for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function macd(string $ticker, array $query = []): array
+    {
+        return $this->stocks()->indicators()->macd($ticker, $query);
+    }
+
+    /**
+     * Retrieve the relative strength index for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function rsi(string $ticker, array $query = []): array
+    {
+        return $this->stocks()->indicators()->rsi($ticker, $query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

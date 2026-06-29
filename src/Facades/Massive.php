@@ -21,6 +21,10 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> latestTrade(string $ticker, array $query = [])
  * @method static array<string, mixed> historicalQuotes(string $ticker, array $query = [], bool $allPages = false)
  * @method static array<string, mixed> latestQuote(string $ticker, array $query = [])
+ * @method static array<string, mixed> sma(string $ticker, array $query = [])
+ * @method static array<string, mixed> ema(string $ticker, array $query = [])
+ * @method static array<string, mixed> macd(string $ticker, array $query = [])
+ * @method static array<string, mixed> rsi(string $ticker, array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *
