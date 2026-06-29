@@ -2,8 +2,15 @@
 
 namespace Pjmarshall1\Massive;
 
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
+use Pjmarshall1\Massive\Exceptions\MassiveAuthenticationException;
+use Pjmarshall1\Massive\Exceptions\MassiveConnectionException;
+use Pjmarshall1\Massive\Exceptions\MassiveRateLimitException;
+use Pjmarshall1\Massive\Exceptions\MassiveRequestException;
+use Pjmarshall1\Massive\Exceptions\UnexpectedMassiveResponseException;
 use Pjmarshall1\Massive\Resources\Stocks;
 
 class Massive
@@ -487,13 +494,25 @@ class Massive
     {
         $path = $this->normalizePath($path);
 
-        $response = $query === []
-            ? $this->requestFor($path)->get($path)
-            : $this->requestFor($path)->get($path, $query);
+        try {
+            $response = $query === []
+                ? $this->requestFor($path)->get($path)
+                : $this->requestFor($path)->get($path, $query);
 
-        return $response
-            ->throw()
-            ->json();
+            $response->throw();
+        } catch (ConnectionException $exception) {
+            throw new MassiveConnectionException($path, $exception);
+        } catch (RequestException $exception) {
+            throw $this->requestExceptionFor($path, $exception);
+        }
+
+        $json = $response->json();
+
+        if (! is_array($json)) {
+            throw new UnexpectedMassiveResponseException($path);
+        }
+
+        return $json;
     }
 
     /**
@@ -539,6 +558,15 @@ class Massive
         }
 
         return $request;
+    }
+
+    protected function requestExceptionFor(string $path, RequestException $exception): MassiveRequestException
+    {
+        return match ($exception->response->status()) {
+            401, 403 => MassiveAuthenticationException::fromRequestException($path, $exception),
+            429 => MassiveRateLimitException::fromRequestException($path, $exception),
+            default => MassiveRequestException::fromRequestException($path, $exception),
+        };
     }
 
     protected function baseRequest(): PendingRequest
