@@ -225,6 +225,50 @@ class Massive
     }
 
     /**
+     * Retrieve known exchanges.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function exchanges(array $query = []): array
+    {
+        return $this->stocks()->marketOperations()->exchanges($query);
+    }
+
+    /**
+     * Retrieve upcoming market holidays.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function upcomingHolidays(array $query = []): array
+    {
+        return $this->stocks()->marketOperations()->upcomingHolidays($query);
+    }
+
+    /**
+     * Retrieve the current market status.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function marketStatus(array $query = []): array
+    {
+        return $this->stocks()->marketOperations()->marketStatus($query);
+    }
+
+    /**
+     * Retrieve trade and quote condition codes.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function conditionCodes(array $query = []): array
+    {
+        return $this->stocks()->marketOperations()->conditionCodes($query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

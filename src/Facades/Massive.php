@@ -25,6 +25,10 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> ema(string $ticker, array $query = [])
  * @method static array<string, mixed> macd(string $ticker, array $query = [])
  * @method static array<string, mixed> rsi(string $ticker, array $query = [])
+ * @method static array<string, mixed> exchanges(array $query = [])
+ * @method static array<string, mixed> upcomingHolidays(array $query = [])
+ * @method static array<string, mixed> marketStatus(array $query = [])
+ * @method static array<string, mixed> conditionCodes(array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

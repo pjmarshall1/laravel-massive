@@ -5,6 +5,7 @@ namespace Pjmarshall1\Massive\Resources;
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Stocks\Aggregates;
 use Pjmarshall1\Massive\Resources\Stocks\Indicators;
+use Pjmarshall1\Massive\Resources\Stocks\MarketOperations;
 use Pjmarshall1\Massive\Resources\Stocks\Quotes;
 use Pjmarshall1\Massive\Resources\Stocks\Snapshots;
 use Pjmarshall1\Massive\Resources\Stocks\Tickers;
@@ -45,5 +46,10 @@ class Stocks
     public function indicators(): Indicators
     {
         return new Indicators($this->client);
+    }
+
+    public function marketOperations(): MarketOperations
+    {
+        return new MarketOperations($this->client);
     }
 }

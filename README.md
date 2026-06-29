@@ -184,6 +184,22 @@ $rsi = Massive::stocks()->indicators()->rsi('AAPL', [
 ]);
 ```
 
+### Market Operations
+
+```php
+$exchanges = Massive::stocks()->marketOperations()->exchanges([
+    'asset_class' => 'stocks',
+]);
+
+$upcomingHolidays = Massive::stocks()->marketOperations()->upcomingHolidays();
+
+$marketStatus = Massive::stocks()->marketOperations()->marketStatus();
+
+$conditionCodes = Massive::stocks()->marketOperations()->conditionCodes([
+    'asset_class' => 'stocks',
+]);
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -205,6 +221,10 @@ $sma = Massive::sma('AAPL');
 $ema = Massive::ema('AAPL');
 $macd = Massive::macd('AAPL');
 $rsi = Massive::rsi('AAPL');
+$exchanges = Massive::exchanges(['asset_class' => 'stocks']);
+$upcomingHolidays = Massive::upcomingHolidays();
+$marketStatus = Massive::marketStatus();
+$conditionCodes = Massive::conditionCodes(['asset_class' => 'stocks']);
 ```
 
 ## Error Handling
