@@ -47,6 +47,7 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> riskCategories(array $query = [])
  * @method static array<string, mixed> form3(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> form4(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> news(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

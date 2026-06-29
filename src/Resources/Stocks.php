@@ -9,6 +9,7 @@ use Pjmarshall1\Massive\Resources\Stocks\Filings;
 use Pjmarshall1\Massive\Resources\Stocks\Fundamentals;
 use Pjmarshall1\Massive\Resources\Stocks\Indicators;
 use Pjmarshall1\Massive\Resources\Stocks\MarketOperations;
+use Pjmarshall1\Massive\Resources\Stocks\News;
 use Pjmarshall1\Massive\Resources\Stocks\Quotes;
 use Pjmarshall1\Massive\Resources\Stocks\Snapshots;
 use Pjmarshall1\Massive\Resources\Stocks\Tickers;
@@ -69,5 +70,10 @@ class Stocks
     public function filings(): Filings
     {
         return new Filings($this->client);
+    }
+
+    public function news(): News
+    {
+        return new News($this->client);
     }
 }

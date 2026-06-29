@@ -467,6 +467,17 @@ class Massive
     }
 
     /**
+     * Retrieve stock news articles.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function news(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->news()->articles($query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

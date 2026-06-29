@@ -286,6 +286,19 @@ $form4 = Massive::stocks()->filings()->form4([
 ]);
 ```
 
+### News
+
+```php
+$news = Massive::stocks()->news()->articles([
+    'ticker' => 'AAPL',
+]);
+
+$allNews = Massive::stocks()->news()->articles([
+    'ticker' => 'AAPL',
+    'limit' => 100,
+], allPages: true);
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -329,6 +342,7 @@ $riskFactors = Massive::riskFactors(['ticker' => 'AAPL']);
 $riskCategories = Massive::riskCategories();
 $form3 = Massive::form3(['ticker' => 'AAPL']);
 $form4 = Massive::form4(['ticker' => 'AAPL']);
+$news = Massive::news(['ticker' => 'AAPL']);
 ```
 
 ## Error Handling
