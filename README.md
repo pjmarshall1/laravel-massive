@@ -252,6 +252,40 @@ $freeFloat = Massive::stocks()->fundamentals()->freeFloat([
 ]);
 ```
 
+### Filings
+
+```php
+$edgarIndex = Massive::stocks()->filings()->edgarIndex([
+    'ticker' => 'AAPL',
+]);
+
+$tenKSections = Massive::stocks()->filings()->tenKSections([
+    'ticker' => 'AAPL',
+]);
+
+$eightKText = Massive::stocks()->filings()->eightKText([
+    'ticker' => 'AAPL',
+]);
+
+$thirteenF = Massive::stocks()->filings()->thirteenF([
+    'cik' => '0001067983',
+]);
+
+$riskFactors = Massive::stocks()->filings()->riskFactors([
+    'ticker' => 'AAPL',
+]);
+
+$riskCategories = Massive::stocks()->filings()->riskCategories();
+
+$form3 = Massive::stocks()->filings()->form3([
+    'ticker' => 'AAPL',
+]);
+
+$form4 = Massive::stocks()->filings()->form4([
+    'ticker' => 'AAPL',
+]);
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -287,6 +321,14 @@ $ratios = Massive::ratios(['ticker' => 'AAPL']);
 $shortInterest = Massive::shortInterest(['ticker' => 'AAPL']);
 $shortVolume = Massive::shortVolume(['ticker' => 'AAPL']);
 $freeFloat = Massive::freeFloat(['ticker' => 'AAPL']);
+$edgarIndex = Massive::edgarIndex(['ticker' => 'AAPL']);
+$tenKSections = Massive::tenKSections(['ticker' => 'AAPL']);
+$eightKText = Massive::eightKText(['ticker' => 'AAPL']);
+$thirteenF = Massive::thirteenF(['cik' => '0001067983']);
+$riskFactors = Massive::riskFactors(['ticker' => 'AAPL']);
+$riskCategories = Massive::riskCategories();
+$form3 = Massive::form3(['ticker' => 'AAPL']);
+$form4 = Massive::form4(['ticker' => 'AAPL']);
 ```
 
 ## Error Handling

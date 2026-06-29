@@ -379,6 +379,94 @@ class Massive
     }
 
     /**
+     * Retrieve the SEC EDGAR filings index.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function edgarIndex(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->filings()->edgarIndex($query, $allPages);
+    }
+
+    /**
+     * Retrieve 10-K filing sections.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function tenKSections(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->filings()->tenKSections($query, $allPages);
+    }
+
+    /**
+     * Retrieve 8-K filing text.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function eightKText(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->filings()->eightKText($query, $allPages);
+    }
+
+    /**
+     * Retrieve 13-F filings.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function thirteenF(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->filings()->thirteenF($query, $allPages);
+    }
+
+    /**
+     * Retrieve standardized risk factor disclosures.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function riskFactors(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->filings()->riskFactors($query, $allPages);
+    }
+
+    /**
+     * Retrieve the risk factor taxonomy.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function riskCategories(array $query = []): array
+    {
+        return $this->stocks()->filings()->riskCategories($query);
+    }
+
+    /**
+     * Retrieve Form 3 filings.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function form3(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->filings()->form3($query, $allPages);
+    }
+
+    /**
+     * Retrieve Form 4 filings.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function form4(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->filings()->form4($query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
