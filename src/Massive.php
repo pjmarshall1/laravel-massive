@@ -137,6 +137,50 @@ class Massive
     }
 
     /**
+     * Retrieve historical trades for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function historicalTrades(string $ticker, array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->trades()->historical($ticker, $query, $allPages);
+    }
+
+    /**
+     * Retrieve the latest trade for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function latestTrade(string $ticker, array $query = []): array
+    {
+        return $this->stocks()->trades()->latest($ticker, $query);
+    }
+
+    /**
+     * Retrieve historical quotes for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function historicalQuotes(string $ticker, array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->quotes()->historical($ticker, $query, $allPages);
+    }
+
+    /**
+     * Retrieve the latest quote for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function latestQuote(string $ticker, array $query = []): array
+    {
+        return $this->stocks()->quotes()->latest($ticker, $query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

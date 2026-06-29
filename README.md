@@ -136,6 +136,34 @@ $gainers = Massive::stocks()->snapshots()->topMarketMovers('gainers');
 $losers = Massive::stocks()->snapshots()->topMarketMovers('losers');
 ```
 
+### Trades
+
+```php
+$trades = Massive::stocks()->trades()->historical('AAPL', [
+    'timestamp.gte' => '2024-01-31',
+]);
+
+$allTrades = Massive::stocks()->trades()->historical('AAPL', [
+    'limit' => 5000,
+], allPages: true);
+
+$latestTrade = Massive::stocks()->trades()->latest('AAPL');
+```
+
+### Quotes
+
+```php
+$quotes = Massive::stocks()->quotes()->historical('AAPL', [
+    'timestamp.gte' => '2024-01-31',
+]);
+
+$allQuotes = Massive::stocks()->quotes()->historical('AAPL', [
+    'limit' => 5000,
+], allPages: true);
+
+$latestQuote = Massive::stocks()->quotes()->latest('AAPL');
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -149,6 +177,10 @@ $singleTicker = Massive::singleTickerSnapshot('AAPL');
 $fullMarket = Massive::fullMarketSnapshot();
 $unified = Massive::unifiedSnapshot(['ticker.any_of' => 'AAPL,MSFT']);
 $gainers = Massive::topMarketMovers('gainers');
+$trades = Massive::historicalTrades('AAPL');
+$latestTrade = Massive::latestTrade('AAPL');
+$quotes = Massive::historicalQuotes('AAPL');
+$latestQuote = Massive::latestQuote('AAPL');
 ```
 
 ## Error Handling

@@ -17,6 +17,10 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> fullMarketSnapshot(array $query = [])
  * @method static array<string, mixed> unifiedSnapshot(array $query = [])
  * @method static array<string, mixed> topMarketMovers(string $direction, array $query = [])
+ * @method static array<string, mixed> historicalTrades(string $ticker, array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> latestTrade(string $ticker, array $query = [])
+ * @method static array<string, mixed> historicalQuotes(string $ticker, array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> latestQuote(string $ticker, array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *
