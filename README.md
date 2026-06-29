@@ -338,6 +338,31 @@ $allBars = Massive::options()->aggregates()->customBars(
 );
 ```
 
+### Options Snapshots
+
+```php
+$unified = Massive::options()->snapshots()->unified([
+    'type' => 'options',
+    'ticker.any_of' => 'O:AAPL240119C00150000,O:AAPL240119P00150000',
+]);
+
+$allUnified = Massive::options()->snapshots()->unified([
+    'type' => 'options',
+    'limit' => 250,
+], allPages: true);
+
+$chain = Massive::options()->snapshots()->chain('AAPL', [
+    'expiration_date' => '2024-01-19',
+    'contract_type' => 'call',
+]);
+
+$allChain = Massive::options()->snapshots()->chain('AAPL', [
+    'limit' => 250,
+], allPages: true);
+
+$contract = Massive::options()->snapshots()->contract('AAPL', 'O:AAPL240119C00150000');
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -385,6 +410,9 @@ $news = Massive::news(['ticker' => 'AAPL']);
 $contracts = Massive::optionsContracts(['underlying_ticker' => 'AAPL']);
 $overview = Massive::optionsContractOverview('O:AAPL240119C00150000');
 $optionBars = Massive::optionsCustomBars('O:AAPL240119C00150000', 1, 'day', '2024-01-01', '2024-01-31');
+$optionsUnified = Massive::optionsUnifiedSnapshot(['type' => 'options']);
+$optionsChain = Massive::optionsChainSnapshot('AAPL');
+$optionsContract = Massive::optionsContractSnapshot('AAPL', 'O:AAPL240119C00150000');
 ```
 
 ## Error Handling

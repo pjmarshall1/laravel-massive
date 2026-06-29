@@ -5,6 +5,7 @@ namespace Pjmarshall1\Massive\Resources;
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Options\Aggregates;
 use Pjmarshall1\Massive\Resources\Options\Contracts;
+use Pjmarshall1\Massive\Resources\Options\Snapshots;
 
 class Options
 {
@@ -21,5 +22,10 @@ class Options
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function snapshots(): Snapshots
+    {
+        return new Snapshots($this->client);
     }
 }

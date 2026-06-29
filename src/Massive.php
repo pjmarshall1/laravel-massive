@@ -524,6 +524,38 @@ class Massive
     }
 
     /**
+     * Retrieve unified options snapshots.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsUnifiedSnapshot(array $query = [], bool $allPages = false): array
+    {
+        return $this->options()->snapshots()->unified($query, $allPages);
+    }
+
+    /**
+     * Retrieve an option chain snapshot for an underlying asset.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsChainSnapshot(string $underlyingAsset, array $query = [], bool $allPages = false): array
+    {
+        return $this->options()->snapshots()->chain($underlyingAsset, $query, $allPages);
+    }
+
+    /**
+     * Retrieve a snapshot for a single options contract.
+     *
+     * @return array<string, mixed>
+     */
+    public function optionsContractSnapshot(string $underlyingAsset, string $optionContract): array
+    {
+        return $this->options()->snapshots()->contract($underlyingAsset, $optionContract);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
