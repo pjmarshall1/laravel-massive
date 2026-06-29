@@ -4,6 +4,7 @@ namespace Pjmarshall1\Massive\Resources;
 
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Stocks\Aggregates;
+use Pjmarshall1\Massive\Resources\Stocks\Snapshots;
 use Pjmarshall1\Massive\Resources\Stocks\Tickers;
 
 class Stocks
@@ -21,5 +22,10 @@ class Stocks
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function snapshots(): Snapshots
+    {
+        return new Snapshots($this->client);
     }
 }

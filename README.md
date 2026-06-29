@@ -121,6 +121,21 @@ $previousClose = Massive::stocks()->aggregates()->previousClose('AAPL', [
 ]);
 ```
 
+### Stock Snapshots
+
+```php
+$singleTicker = Massive::stocks()->snapshots()->singleTicker('AAPL');
+
+$fullMarket = Massive::stocks()->snapshots()->fullMarket();
+
+$unified = Massive::stocks()->snapshots()->unified([
+    'ticker.any_of' => 'AAPL,MSFT',
+]);
+
+$gainers = Massive::stocks()->snapshots()->topMarketMovers('gainers');
+$losers = Massive::stocks()->snapshots()->topMarketMovers('losers');
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -130,6 +145,10 @@ $bars = Massive::customBars('AAPL', 1, 'day', '2024-01-01', '2024-01-31');
 $grouped = Massive::groupedDaily('2024-01-31');
 $openClose = Massive::dailyOpenClose('AAPL', '2024-01-31');
 $previousClose = Massive::previousClose('AAPL');
+$singleTicker = Massive::singleTickerSnapshot('AAPL');
+$fullMarket = Massive::fullMarketSnapshot();
+$unified = Massive::unifiedSnapshot(['ticker.any_of' => 'AAPL,MSFT']);
+$gainers = Massive::topMarketMovers('gainers');
 ```
 
 ## Error Handling

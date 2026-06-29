@@ -93,6 +93,50 @@ class Massive
     }
 
     /**
+     * Retrieve the latest snapshot for a single stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function singleTickerSnapshot(string $ticker, array $query = []): array
+    {
+        return $this->stocks()->snapshots()->singleTicker($ticker, $query);
+    }
+
+    /**
+     * Retrieve the full market snapshot for all stock tickers.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function fullMarketSnapshot(array $query = []): array
+    {
+        return $this->stocks()->snapshots()->fullMarket($query);
+    }
+
+    /**
+     * Retrieve unified snapshots across supported asset classes.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function unifiedSnapshot(array $query = []): array
+    {
+        return $this->stocks()->snapshots()->unified($query);
+    }
+
+    /**
+     * Retrieve top stock market movers for a direction.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function topMarketMovers(string $direction, array $query = []): array
+    {
+        return $this->stocks()->snapshots()->topMarketMovers($direction, $query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

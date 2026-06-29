@@ -13,6 +13,10 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> groupedDaily(string $date, array $query = [])
  * @method static array<string, mixed> dailyOpenClose(string $ticker, string $date, array $query = [])
  * @method static array<string, mixed> previousClose(string $ticker, array $query = [])
+ * @method static array<string, mixed> singleTickerSnapshot(string $ticker, array $query = [])
+ * @method static array<string, mixed> fullMarketSnapshot(array $query = [])
+ * @method static array<string, mixed> unifiedSnapshot(array $query = [])
+ * @method static array<string, mixed> topMarketMovers(string $direction, array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *
