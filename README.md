@@ -315,6 +315,29 @@ $allContracts = Massive::options()->contracts()->allContracts([
 $overview = Massive::options()->contracts()->overview('O:AAPL240119C00150000');
 ```
 
+### Options Aggregates
+
+```php
+$bars = Massive::options()->aggregates()->customBars(
+    optionsTicker: 'O:AAPL240119C00150000',
+    multiplier: 1,
+    timespan: 'day',
+    from: '2024-01-01',
+    to: '2024-01-31',
+    query: ['adjusted' => true],
+);
+
+$allBars = Massive::options()->aggregates()->customBars(
+    optionsTicker: 'O:AAPL240119C00150000',
+    multiplier: 1,
+    timespan: 'day',
+    from: '2024-01-01',
+    to: '2024-01-31',
+    query: ['limit' => 5000],
+    allPages: true,
+);
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -361,6 +384,7 @@ $form4 = Massive::form4(['ticker' => 'AAPL']);
 $news = Massive::news(['ticker' => 'AAPL']);
 $contracts = Massive::optionsContracts(['underlying_ticker' => 'AAPL']);
 $overview = Massive::optionsContractOverview('O:AAPL240119C00150000');
+$optionBars = Massive::optionsCustomBars('O:AAPL240119C00150000', 1, 'day', '2024-01-01', '2024-01-31');
 ```
 
 ## Error Handling

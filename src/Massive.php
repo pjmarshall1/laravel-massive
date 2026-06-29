@@ -513,6 +513,17 @@ class Massive
     }
 
     /**
+     * Retrieve custom aggregate bars for an options contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsCustomBars(string $optionsTicker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false): array
+    {
+        return $this->options()->aggregates()->customBars($optionsTicker, $multiplier, $timespan, $from, $to, $query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

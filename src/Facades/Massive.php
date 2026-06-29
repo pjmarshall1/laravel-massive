@@ -52,6 +52,7 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> news(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> optionsContracts(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> optionsContractOverview(string $optionsTicker, array $query = [])
+ * @method static array<string, mixed> optionsCustomBars(string $optionsTicker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false)
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *
