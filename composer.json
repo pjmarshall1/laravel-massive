@@ -1,0 +1,27 @@
+{
+    "name": "pjmarshall1/laravel-massive",
+    "description": "A Laravel-native client for the Massive REST API.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "illuminate/http": "^13.0",
+        "illuminate/support": "^13.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pjmarshall1\\Massive\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pjmarshall1\\Massive\\MassiveServiceProvider"
+            ],
+            "aliases": {
+                "Massive": "Pjmarshall1\\Massive\\Facades\\Massive"
+            }
+        }
+    },
+    "minimum-stability": "stable"
+}
