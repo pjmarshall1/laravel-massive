@@ -220,6 +220,38 @@ $tickerEvents = Massive::stocks()->corporateActions()->tickerEvents('AAPL', [
 ]);
 ```
 
+### Fundamentals
+
+```php
+$balanceSheets = Massive::stocks()->fundamentals()->balanceSheets([
+    'ticker' => 'AAPL',
+]);
+
+$cashFlowStatements = Massive::stocks()->fundamentals()->cashFlowStatements([
+    'ticker' => 'AAPL',
+]);
+
+$incomeStatements = Massive::stocks()->fundamentals()->incomeStatements([
+    'ticker' => 'AAPL',
+]);
+
+$ratios = Massive::stocks()->fundamentals()->ratios([
+    'ticker' => 'AAPL',
+]);
+
+$shortInterest = Massive::stocks()->fundamentals()->shortInterest([
+    'ticker' => 'AAPL',
+]);
+
+$shortVolume = Massive::stocks()->fundamentals()->shortVolume([
+    'ticker' => 'AAPL',
+]);
+
+$freeFloat = Massive::stocks()->fundamentals()->freeFloat([
+    'ticker' => 'AAPL',
+]);
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -248,6 +280,13 @@ $conditionCodes = Massive::conditionCodes(['asset_class' => 'stocks']);
 $ipos = Massive::ipos(['ipo_status' => 'new']);
 $splits = Massive::splits(['ticker' => 'AAPL']);
 $tickerEvents = Massive::tickerEvents('AAPL');
+$balanceSheets = Massive::balanceSheets(['ticker' => 'AAPL']);
+$cashFlowStatements = Massive::cashFlowStatements(['ticker' => 'AAPL']);
+$incomeStatements = Massive::incomeStatements(['ticker' => 'AAPL']);
+$ratios = Massive::ratios(['ticker' => 'AAPL']);
+$shortInterest = Massive::shortInterest(['ticker' => 'AAPL']);
+$shortVolume = Massive::shortVolume(['ticker' => 'AAPL']);
+$freeFloat = Massive::freeFloat(['ticker' => 'AAPL']);
 ```
 
 ## Error Handling

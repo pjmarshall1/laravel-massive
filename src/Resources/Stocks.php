@@ -5,6 +5,7 @@ namespace Pjmarshall1\Massive\Resources;
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Stocks\Aggregates;
 use Pjmarshall1\Massive\Resources\Stocks\CorporateActions;
+use Pjmarshall1\Massive\Resources\Stocks\Fundamentals;
 use Pjmarshall1\Massive\Resources\Stocks\Indicators;
 use Pjmarshall1\Massive\Resources\Stocks\MarketOperations;
 use Pjmarshall1\Massive\Resources\Stocks\Quotes;
@@ -57,5 +58,10 @@ class Stocks
     public function corporateActions(): CorporateActions
     {
         return new CorporateActions($this->client);
+    }
+
+    public function fundamentals(): Fundamentals
+    {
+        return new Fundamentals($this->client);
     }
 }

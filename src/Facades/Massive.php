@@ -32,6 +32,13 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> ipos(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> splits(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> tickerEvents(string $id, array $query = [])
+ * @method static array<string, mixed> balanceSheets(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> cashFlowStatements(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> incomeStatements(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> ratios(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> shortInterest(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> shortVolume(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> freeFloat(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

@@ -302,6 +302,83 @@ class Massive
     }
 
     /**
+     * Retrieve balance sheet data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function balanceSheets(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->fundamentals()->balanceSheets($query, $allPages);
+    }
+
+    /**
+     * Retrieve cash flow statement data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cashFlowStatements(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->fundamentals()->cashFlowStatements($query, $allPages);
+    }
+
+    /**
+     * Retrieve income statement data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function incomeStatements(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->fundamentals()->incomeStatements($query, $allPages);
+    }
+
+    /**
+     * Retrieve financial ratios.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function ratios(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->fundamentals()->ratios($query, $allPages);
+    }
+
+    /**
+     * Retrieve short interest data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function shortInterest(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->fundamentals()->shortInterest($query, $allPages);
+    }
+
+    /**
+     * Retrieve short volume data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function shortVolume(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->fundamentals()->shortVolume($query, $allPages);
+    }
+
+    /**
+     * Retrieve free float data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function freeFloat(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->fundamentals()->freeFloat($query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
