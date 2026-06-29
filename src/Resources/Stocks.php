@@ -3,6 +3,7 @@
 namespace Pjmarshall1\Massive\Resources;
 
 use Pjmarshall1\Massive\Massive;
+use Pjmarshall1\Massive\Resources\Stocks\Aggregates;
 use Pjmarshall1\Massive\Resources\Stocks\Tickers;
 
 class Stocks
@@ -17,14 +18,8 @@ class Stocks
         return new Tickers($this->client);
     }
 
-    /**
-     * Retrieve dividend records.
-     *
-     * @param  array<string, mixed>  $query
-     * @return array<string, mixed>
-     */
-    public function dividends(array $query = []): array
+    public function aggregates(): Aggregates
     {
-        return $this->client->get('/v3/reference/dividends', $query);
+        return new Aggregates($this->client);
     }
 }

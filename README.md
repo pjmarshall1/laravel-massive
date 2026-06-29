@@ -86,11 +86,38 @@ $types = Massive::stocks()->tickers()->types();
 $related = Massive::stocks()->tickers()->related('AAPL');
 ```
 
-### Dividends
+### Stock Aggregates
 
 ```php
-$dividends = Massive::stocks()->dividends([
-    'ticker' => 'AAPL',
+$bars = Massive::stocks()->aggregates()->customBars(
+    ticker: 'AAPL',
+    multiplier: 1,
+    timespan: 'day',
+    from: '2024-01-01',
+    to: '2024-01-31',
+    query: ['adjusted' => true],
+);
+
+$allBars = Massive::stocks()->aggregates()->customBars(
+    ticker: 'AAPL',
+    multiplier: 1,
+    timespan: 'day',
+    from: '2024-01-01',
+    to: '2024-01-31',
+    query: ['limit' => 5000],
+    allPages: true,
+);
+
+$grouped = Massive::stocks()->aggregates()->groupedDaily('2024-01-31', [
+    'adjusted' => true,
+]);
+
+$openClose = Massive::stocks()->aggregates()->dailyOpenClose('AAPL', '2024-01-31', [
+    'adjusted' => true,
+]);
+
+$previousClose = Massive::stocks()->aggregates()->previousClose('AAPL', [
+    'adjusted' => true,
 ]);
 ```
 
@@ -99,6 +126,10 @@ The original flat stock methods remain available as convenience proxies:
 ```php
 $details = Massive::tickerDetails('AAPL');
 $dividends = Massive::dividends(['ticker' => 'AAPL']);
+$bars = Massive::customBars('AAPL', 1, 'day', '2024-01-01', '2024-01-31');
+$grouped = Massive::groupedDaily('2024-01-31');
+$openClose = Massive::dailyOpenClose('AAPL', '2024-01-31');
+$previousClose = Massive::previousClose('AAPL');
 ```
 
 ## Error Handling

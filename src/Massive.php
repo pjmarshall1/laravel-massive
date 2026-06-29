@@ -45,7 +45,51 @@ class Massive
      */
     public function dividends(array $query = []): array
     {
-        return $this->stocks()->dividends($query);
+        return $this->get('/v3/reference/dividends', $query);
+    }
+
+    /**
+     * Retrieve custom aggregate bars for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function customBars(string $ticker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->aggregates()->customBars($ticker, $multiplier, $timespan, $from, $to, $query, $allPages);
+    }
+
+    /**
+     * Retrieve grouped daily bars for the entire US stocks market.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function groupedDaily(string $date, array $query = []): array
+    {
+        return $this->stocks()->aggregates()->groupedDaily($date, $query);
+    }
+
+    /**
+     * Retrieve daily open and close data for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function dailyOpenClose(string $ticker, string $date, array $query = []): array
+    {
+        return $this->stocks()->aggregates()->dailyOpenClose($ticker, $date, $query);
+    }
+
+    /**
+     * Retrieve the previous close for a stock ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function previousClose(string $ticker, array $query = []): array
+    {
+        return $this->stocks()->aggregates()->previousClose($ticker, $query);
     }
 
     /**

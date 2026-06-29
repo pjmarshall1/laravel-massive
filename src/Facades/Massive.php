@@ -9,6 +9,10 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static Stocks stocks()
  * @method static array<string, mixed> tickerDetails(string $ticker, array $query = [])
  * @method static array<string, mixed> dividends(array $query = [])
+ * @method static array<string, mixed> customBars(string $ticker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> groupedDaily(string $date, array $query = [])
+ * @method static array<string, mixed> dailyOpenClose(string $ticker, string $date, array $query = [])
+ * @method static array<string, mixed> previousClose(string $ticker, array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *
