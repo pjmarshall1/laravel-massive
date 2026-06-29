@@ -3,10 +3,12 @@
 namespace Pjmarshall1\Massive\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Pjmarshall1\Massive\Resources\Options;
 use Pjmarshall1\Massive\Resources\Stocks;
 
 /**
  * @method static Stocks stocks()
+ * @method static Options options()
  * @method static array<string, mixed> tickerDetails(string $ticker, array $query = [])
  * @method static array<string, mixed> dividends(array $query = [])
  * @method static array<string, mixed> customBars(string $ticker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false)
@@ -48,6 +50,8 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> form3(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> form4(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> news(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> optionsContracts(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> optionsContractOverview(string $optionsTicker, array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

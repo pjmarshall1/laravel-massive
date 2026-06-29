@@ -11,6 +11,7 @@ use Pjmarshall1\Massive\Exceptions\MassiveConnectionException;
 use Pjmarshall1\Massive\Exceptions\MassiveRateLimitException;
 use Pjmarshall1\Massive\Exceptions\MassiveRequestException;
 use Pjmarshall1\Massive\Exceptions\UnexpectedMassiveResponseException;
+use Pjmarshall1\Massive\Resources\Options;
 use Pjmarshall1\Massive\Resources\Stocks;
 
 class Massive
@@ -31,6 +32,11 @@ class Massive
     public function stocks(): Stocks
     {
         return new Stocks($this);
+    }
+
+    public function options(): Options
+    {
+        return new Options($this);
     }
 
     /**
@@ -482,6 +488,28 @@ class Massive
     public function news(array $query = [], bool $allPages = false): array
     {
         return $this->stocks()->news()->articles($query, $allPages);
+    }
+
+    /**
+     * Retrieve options contracts.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsContracts(array $query = [], bool $allPages = false): array
+    {
+        return $this->options()->contracts()->allContracts($query, $allPages);
+    }
+
+    /**
+     * Retrieve an options contract overview.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsContractOverview(string $optionsTicker, array $query = []): array
+    {
+        return $this->options()->contracts()->overview($optionsTicker, $query);
     }
 
     /**

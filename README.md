@@ -299,6 +299,22 @@ $allNews = Massive::stocks()->news()->articles([
 ], allPages: true);
 ```
 
+### Options Contracts
+
+```php
+$contracts = Massive::options()->contracts()->allContracts([
+    'underlying_ticker' => 'AAPL',
+    'contract_type' => 'call',
+]);
+
+$allContracts = Massive::options()->contracts()->allContracts([
+    'underlying_ticker' => 'AAPL',
+    'limit' => 1000,
+], allPages: true);
+
+$overview = Massive::options()->contracts()->overview('O:AAPL240119C00150000');
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -343,6 +359,8 @@ $riskCategories = Massive::riskCategories();
 $form3 = Massive::form3(['ticker' => 'AAPL']);
 $form4 = Massive::form4(['ticker' => 'AAPL']);
 $news = Massive::news(['ticker' => 'AAPL']);
+$contracts = Massive::optionsContracts(['underlying_ticker' => 'AAPL']);
+$overview = Massive::optionsContractOverview('O:AAPL240119C00150000');
 ```
 
 ## Error Handling
