@@ -45,9 +45,7 @@ use Pjmarshall1\Massive\Massive;
 
 $massive = app(Massive::class);
 
-$dividends = $massive->dividends([
-    'ticker' => 'AAPL',
-]);
+$overview = $massive->stocks()->tickers()->overview('AAPL');
 ```
 
 Or use the facade:
@@ -70,33 +68,37 @@ $response = Massive::get('/v3/reference/tickers', [
 ]);
 ```
 
-### Aggregate Bars
+### Stock Tickers
 
 ```php
-$bars = Massive::aggregates(
-    ticker: 'AAPL',
-    multiplier: 1,
-    timespan: 'day',
-    from: '2026-01-01',
-    to: '2026-01-31',
-    query: [
-        'adjusted' => 'true',
-    ],
-);
-```
+$tickers = Massive::stocks()->tickers()->allTickers([
+    'market' => 'stocks',
+    'active' => 'true',
+]);
 
-### Ticker Details
+$allTickers = Massive::stocks()->tickers()->allTickers([
+    'market' => 'stocks',
+    'active' => 'true',
+], allPages: true);
 
-```php
-$details = Massive::tickerDetails('AAPL');
+$overview = Massive::stocks()->tickers()->overview('AAPL');
+$types = Massive::stocks()->tickers()->types();
+$related = Massive::stocks()->tickers()->related('AAPL');
 ```
 
 ### Dividends
 
 ```php
-$dividends = Massive::dividends([
+$dividends = Massive::stocks()->dividends([
     'ticker' => 'AAPL',
 ]);
+```
+
+The original flat stock methods remain available as convenience proxies:
+
+```php
+$details = Massive::tickerDetails('AAPL');
+$dividends = Massive::dividends(['ticker' => 'AAPL']);
 ```
 
 ## Error Handling

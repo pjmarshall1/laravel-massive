@@ -4,7 +4,7 @@ namespace Pjmarshall1\Massive;
 
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
-use InvalidArgumentException;
+use Pjmarshall1\Massive\Resources\Stocks;
 
 class Massive
 {
@@ -21,28 +21,9 @@ class Massive
         //
     }
 
-    /**
-     * Retrieve aggregate bars for a stock ticker.
-     *
-     * @param  array<string, mixed>  $query
-     * @return array<string, mixed>
-     */
-    public function aggregates(
-        string $ticker,
-        int $multiplier,
-        string $timespan,
-        string $from,
-        string $to,
-        array $query = [],
-    ): array {
-        if ($multiplier < 1) {
-            throw new InvalidArgumentException('The aggregate multiplier must be greater than zero.');
-        }
-
-        return $this->get(
-            sprintf('/v2/aggs/ticker/%s/range/%d/%s/%s/%s', $ticker, $multiplier, $timespan, $from, $to),
-            $query,
-        );
+    public function stocks(): Stocks
+    {
+        return new Stocks($this);
     }
 
     /**
@@ -53,7 +34,7 @@ class Massive
      */
     public function tickerDetails(string $ticker, array $query = []): array
     {
-        return $this->get("/v3/reference/tickers/{$ticker}", $query);
+        return $this->stocks()->tickers()->overview($ticker, $query);
     }
 
     /**
@@ -64,7 +45,7 @@ class Massive
      */
     public function dividends(array $query = []): array
     {
-        return $this->get('/v3/reference/dividends', $query);
+        return $this->stocks()->dividends($query);
     }
 
     /**
@@ -75,16 +56,65 @@ class Massive
      */
     public function get(string $path, array $query = []): array
     {
-        return $this->request()
-            ->get($this->normalizePath($path), $query)
+        $path = $this->normalizePath($path);
+
+        $response = $query === []
+            ? $this->requestFor($path)->get($path)
+            : $this->requestFor($path)->get($path, $query);
+
+        return $response
             ->throw()
             ->json();
     }
 
+    /**
+     * Send GET requests until a paginated Massive endpoint has no next page.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function getAllPages(string $path, array $query = [], string $resultsKey = 'results'): array
+    {
+        $response = $this->get($path, $query);
+        $results = $response[$resultsKey] ?? [];
+        $nextUrl = $response['next_url'] ?? null;
+
+        while (is_string($nextUrl) && $nextUrl !== '') {
+            $nextResponse = $this->get($nextUrl);
+
+            $results = [
+                ...$results,
+                ...($nextResponse[$resultsKey] ?? []),
+            ];
+
+            $nextUrl = $nextResponse['next_url'] ?? null;
+        }
+
+        $response[$resultsKey] = $results;
+        unset($response['next_url']);
+
+        return $response;
+    }
+
     public function request(): PendingRequest
     {
-        $request = Http::baseUrl($this->baseUrl)
-            ->acceptJson()
+        return $this->baseRequest()->baseUrl($this->baseUrl);
+    }
+
+    protected function requestFor(string $path): PendingRequest
+    {
+        $request = $this->baseRequest();
+
+        if (! $this->isAbsoluteUrl($path)) {
+            $request = $request->baseUrl($this->baseUrl);
+        }
+
+        return $request;
+    }
+
+    protected function baseRequest(): PendingRequest
+    {
+        $request = Http::acceptJson()
             ->timeout($this->timeout)
             ->connectTimeout($this->connectTimeout);
 
@@ -101,6 +131,15 @@ class Massive
 
     protected function normalizePath(string $path): string
     {
+        if ($this->isAbsoluteUrl($path)) {
+            return $path;
+        }
+
         return '/'.ltrim($path, '/');
+    }
+
+    protected function isAbsoluteUrl(string $path): bool
+    {
+        return str_starts_with($path, 'http://') || str_starts_with($path, 'https://');
     }
 }
