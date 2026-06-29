@@ -29,6 +29,9 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> upcomingHolidays(array $query = [])
  * @method static array<string, mixed> marketStatus(array $query = [])
  * @method static array<string, mixed> conditionCodes(array $query = [])
+ * @method static array<string, mixed> ipos(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> splits(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> tickerEvents(string $id, array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

@@ -200,6 +200,26 @@ $conditionCodes = Massive::stocks()->marketOperations()->conditionCodes([
 ]);
 ```
 
+### Corporate Actions
+
+```php
+$ipos = Massive::stocks()->corporateActions()->ipos([
+    'ipo_status' => 'new',
+]);
+
+$splits = Massive::stocks()->corporateActions()->splits([
+    'ticker' => 'AAPL',
+]);
+
+$dividends = Massive::stocks()->corporateActions()->dividends([
+    'ticker' => 'AAPL',
+]);
+
+$tickerEvents = Massive::stocks()->corporateActions()->tickerEvents('AAPL', [
+    'types' => 'ticker_change',
+]);
+```
+
 The original flat stock methods remain available as convenience proxies:
 
 ```php
@@ -225,6 +245,9 @@ $exchanges = Massive::exchanges(['asset_class' => 'stocks']);
 $upcomingHolidays = Massive::upcomingHolidays();
 $marketStatus = Massive::marketStatus();
 $conditionCodes = Massive::conditionCodes(['asset_class' => 'stocks']);
+$ipos = Massive::ipos(['ipo_status' => 'new']);
+$splits = Massive::splits(['ticker' => 'AAPL']);
+$tickerEvents = Massive::tickerEvents('AAPL');
 ```
 
 ## Error Handling

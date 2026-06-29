@@ -45,7 +45,7 @@ class Massive
      */
     public function dividends(array $query = []): array
     {
-        return $this->get('/v3/reference/dividends', $query);
+        return $this->stocks()->corporateActions()->dividends($query);
     }
 
     /**
@@ -266,6 +266,39 @@ class Massive
     public function conditionCodes(array $query = []): array
     {
         return $this->stocks()->marketOperations()->conditionCodes($query);
+    }
+
+    /**
+     * Retrieve initial public offerings.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function ipos(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->corporateActions()->ipos($query, $allPages);
+    }
+
+    /**
+     * Retrieve stock split events.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function splits(array $query = [], bool $allPages = false): array
+    {
+        return $this->stocks()->corporateActions()->splits($query, $allPages);
+    }
+
+    /**
+     * Retrieve ticker event history.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function tickerEvents(string $id, array $query = []): array
+    {
+        return $this->stocks()->corporateActions()->tickerEvents($id, $query);
     }
 
     /**
