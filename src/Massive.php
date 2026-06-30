@@ -11,6 +11,7 @@ use Pjmarshall1\Massive\Exceptions\MassiveConnectionException;
 use Pjmarshall1\Massive\Exceptions\MassiveRateLimitException;
 use Pjmarshall1\Massive\Exceptions\MassiveRequestException;
 use Pjmarshall1\Massive\Exceptions\UnexpectedMassiveResponseException;
+use Pjmarshall1\Massive\Resources\Crypto;
 use Pjmarshall1\Massive\Resources\Forex;
 use Pjmarshall1\Massive\Resources\Futures;
 use Pjmarshall1\Massive\Resources\Indices;
@@ -55,6 +56,11 @@ class Massive
     public function forex(): Forex
     {
         return new Forex($this);
+    }
+
+    public function crypto(): Crypto
+    {
+        return new Crypto($this);
     }
 
     /**
@@ -954,6 +960,28 @@ class Massive
     public function forexTickerOverview(string $ticker, array $query = []): array
     {
         return $this->forex()->tickers()->overview($ticker, $query);
+    }
+
+    /**
+     * Retrieve crypto tickers.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoTickers(array $query = [], bool $allPages = false): array
+    {
+        return $this->crypto()->tickers()->allTickers($query, $allPages);
+    }
+
+    /**
+     * Retrieve a crypto ticker overview.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoTickerOverview(string $ticker, array $query = []): array
+    {
+        return $this->crypto()->tickers()->overview($ticker, $query);
     }
 
     /**
