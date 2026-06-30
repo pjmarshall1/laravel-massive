@@ -5,6 +5,7 @@ namespace Pjmarshall1\Massive\Resources;
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Futures\Aggregates;
 use Pjmarshall1\Massive\Resources\Futures\Contracts;
+use Pjmarshall1\Massive\Resources\Futures\MarketOperations;
 use Pjmarshall1\Massive\Resources\Futures\Products;
 use Pjmarshall1\Massive\Resources\Futures\Quotes;
 use Pjmarshall1\Massive\Resources\Futures\Schedules;
@@ -51,5 +52,10 @@ class Futures
     public function quotes(): Quotes
     {
         return new Quotes($this->client);
+    }
+
+    public function marketOperations(): MarketOperations
+    {
+        return new MarketOperations($this->client);
     }
 }

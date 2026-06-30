@@ -760,6 +760,28 @@ class Massive
     }
 
     /**
+     * Retrieve current futures market status records.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function futuresMarketStatus(array $query = [], bool $allPages = false): array
+    {
+        return $this->futures()->marketOperations()->marketStatus($query, $allPages);
+    }
+
+    /**
+     * Retrieve supported futures exchanges.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function futuresExchanges(array $query = [], bool $allPages = false): array
+    {
+        return $this->futures()->marketOperations()->exchanges($query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

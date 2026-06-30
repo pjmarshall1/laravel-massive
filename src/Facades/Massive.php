@@ -76,6 +76,8 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> futuresContractSnapshots(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> futuresTrades(string $ticker, array $query = [], bool $allPages = false)
  * @method static array<string, mixed> futuresQuotes(string $ticker, array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> futuresMarketStatus(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> futuresExchanges(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *
