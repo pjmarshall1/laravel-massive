@@ -11,6 +11,7 @@ use Pjmarshall1\Massive\Exceptions\MassiveConnectionException;
 use Pjmarshall1\Massive\Exceptions\MassiveRateLimitException;
 use Pjmarshall1\Massive\Exceptions\MassiveRequestException;
 use Pjmarshall1\Massive\Exceptions\UnexpectedMassiveResponseException;
+use Pjmarshall1\Massive\Resources\Futures;
 use Pjmarshall1\Massive\Resources\Options;
 use Pjmarshall1\Massive\Resources\Stocks;
 
@@ -37,6 +38,11 @@ class Massive
     public function options(): Options
     {
         return new Options($this);
+    }
+
+    public function futures(): Futures
+    {
+        return new Futures($this);
     }
 
     /**
@@ -674,6 +680,17 @@ class Massive
     public function optionsContractSnapshot(string $underlyingAsset, string $optionContract): array
     {
         return $this->options()->snapshots()->contract($underlyingAsset, $optionContract);
+    }
+
+    /**
+     * Retrieve futures contracts.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function futuresContracts(array $query = [], bool $allPages = false): array
+    {
+        return $this->futures()->contracts()->allContracts($query, $allPages);
     }
 
     /**
