@@ -601,6 +601,50 @@ class Massive
     }
 
     /**
+     * Retrieve known options exchanges.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsExchanges(array $query = []): array
+    {
+        return $this->options()->marketOperations()->exchanges($query);
+    }
+
+    /**
+     * Retrieve upcoming options market holidays.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsMarketHolidays(array $query = []): array
+    {
+        return $this->options()->marketOperations()->marketHolidays($query);
+    }
+
+    /**
+     * Retrieve the current market status.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsMarketStatus(array $query = []): array
+    {
+        return $this->options()->marketOperations()->marketStatus($query);
+    }
+
+    /**
+     * Retrieve options trade and quote condition codes.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsConditionCodes(array $query = []): array
+    {
+        return $this->options()->marketOperations()->conditionCodes($query);
+    }
+
+    /**
      * Retrieve unified options snapshots.
      *
      * @param  array<string, mixed>  $query
