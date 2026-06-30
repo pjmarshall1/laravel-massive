@@ -3,6 +3,7 @@
 namespace Pjmarshall1\Massive\Resources;
 
 use Pjmarshall1\Massive\Massive;
+use Pjmarshall1\Massive\Resources\Forex\CurrencyConversion;
 use Pjmarshall1\Massive\Resources\Forex\Tickers;
 
 class Forex
@@ -15,5 +16,10 @@ class Forex
     public function tickers(): Tickers
     {
         return new Tickers($this->client);
+    }
+
+    public function currencyConversion(): CurrencyConversion
+    {
+        return new CurrencyConversion($this->client);
     }
 }

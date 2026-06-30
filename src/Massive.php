@@ -957,6 +957,17 @@ class Massive
     }
 
     /**
+     * Retrieve real-time currency conversion rates.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexCurrencyConversion(string $from, string $to, array $query = []): array
+    {
+        return $this->forex()->currencyConversion()->convert($from, $to, $query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
