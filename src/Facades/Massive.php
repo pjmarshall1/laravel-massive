@@ -87,6 +87,10 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> indicesDailyOpenClose(string $indicesTicker, string $date)
  * @method static array<string, mixed> indicesSnapshots(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> indicesUnifiedSnapshot(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> indicesSma(string $indicesTicker, array $query = [])
+ * @method static array<string, mixed> indicesEma(string $indicesTicker, array $query = [])
+ * @method static array<string, mixed> indicesMacd(string $indicesTicker, array $query = [])
+ * @method static array<string, mixed> indicesRsi(string $indicesTicker, array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

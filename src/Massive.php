@@ -863,6 +863,50 @@ class Massive
     }
 
     /**
+     * Retrieve the simple moving average for an index ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesSma(string $indicesTicker, array $query = []): array
+    {
+        return $this->indices()->indicators()->sma($indicesTicker, $query);
+    }
+
+    /**
+     * Retrieve the exponential moving average for an index ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesEma(string $indicesTicker, array $query = []): array
+    {
+        return $this->indices()->indicators()->ema($indicesTicker, $query);
+    }
+
+    /**
+     * Retrieve the moving average convergence/divergence for an index ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesMacd(string $indicesTicker, array $query = []): array
+    {
+        return $this->indices()->indicators()->macd($indicesTicker, $query);
+    }
+
+    /**
+     * Retrieve the relative strength index for an index ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesRsi(string $indicesTicker, array $query = []): array
+    {
+        return $this->indices()->indicators()->rsi($indicesTicker, $query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
