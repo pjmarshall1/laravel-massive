@@ -524,6 +524,39 @@ class Massive
     }
 
     /**
+     * Retrieve historical trades for an options contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsTrades(string $optionsTicker, array $query = [], bool $allPages = false): array
+    {
+        return $this->options()->trades()->historical($optionsTicker, $query, $allPages);
+    }
+
+    /**
+     * Retrieve the latest trade for an options contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsLatestTrade(string $optionsTicker, array $query = []): array
+    {
+        return $this->options()->trades()->latest($optionsTicker, $query);
+    }
+
+    /**
+     * Retrieve historical quotes for an options contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsQuotes(string $optionsTicker, array $query = [], bool $allPages = false): array
+    {
+        return $this->options()->quotes()->historical($optionsTicker, $query, $allPages);
+    }
+
+    /**
      * Retrieve unified options snapshots.
      *
      * @param  array<string, mixed>  $query
