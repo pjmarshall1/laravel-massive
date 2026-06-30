@@ -5,6 +5,7 @@ namespace Pjmarshall1\Massive\Resources;
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Forex\Aggregates;
 use Pjmarshall1\Massive\Resources\Forex\CurrencyConversion;
+use Pjmarshall1\Massive\Resources\Forex\Indicators;
 use Pjmarshall1\Massive\Resources\Forex\Quotes;
 use Pjmarshall1\Massive\Resources\Forex\Snapshots;
 use Pjmarshall1\Massive\Resources\Forex\Tickers;
@@ -39,5 +40,10 @@ class Forex
     public function quotes(): Quotes
     {
         return new Quotes($this->client);
+    }
+
+    public function indicators(): Indicators
+    {
+        return new Indicators($this->client);
     }
 }

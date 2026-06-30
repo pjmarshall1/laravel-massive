@@ -1064,6 +1064,50 @@ class Massive
     }
 
     /**
+     * Retrieve the simple moving average for a forex ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexSma(string $fxTicker, array $query = []): array
+    {
+        return $this->forex()->indicators()->sma($fxTicker, $query);
+    }
+
+    /**
+     * Retrieve the exponential moving average for a forex ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexEma(string $fxTicker, array $query = []): array
+    {
+        return $this->forex()->indicators()->ema($fxTicker, $query);
+    }
+
+    /**
+     * Retrieve the moving average convergence/divergence for a forex ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexMacd(string $fxTicker, array $query = []): array
+    {
+        return $this->forex()->indicators()->macd($fxTicker, $query);
+    }
+
+    /**
+     * Retrieve the relative strength index for a forex ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexRsi(string $fxTicker, array $query = []): array
+    {
+        return $this->forex()->indicators()->rsi($fxTicker, $query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
