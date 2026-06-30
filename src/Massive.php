@@ -738,6 +738,28 @@ class Massive
     }
 
     /**
+     * Retrieve historical trades for a futures contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function futuresTrades(string $ticker, array $query = [], bool $allPages = false): array
+    {
+        return $this->futures()->trades()->historical($ticker, $query, $allPages);
+    }
+
+    /**
+     * Retrieve historical quotes for a futures contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function futuresQuotes(string $ticker, array $query = [], bool $allPages = false): array
+    {
+        return $this->futures()->quotes()->historical($ticker, $query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

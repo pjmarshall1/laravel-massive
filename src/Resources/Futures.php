@@ -6,8 +6,10 @@ use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Futures\Aggregates;
 use Pjmarshall1\Massive\Resources\Futures\Contracts;
 use Pjmarshall1\Massive\Resources\Futures\Products;
+use Pjmarshall1\Massive\Resources\Futures\Quotes;
 use Pjmarshall1\Massive\Resources\Futures\Schedules;
 use Pjmarshall1\Massive\Resources\Futures\Snapshots;
+use Pjmarshall1\Massive\Resources\Futures\Trades;
 
 class Futures
 {
@@ -39,5 +41,15 @@ class Futures
     public function snapshots(): Snapshots
     {
         return new Snapshots($this->client);
+    }
+
+    public function trades(): Trades
+    {
+        return new Trades($this->client);
+    }
+
+    public function quotes(): Quotes
+    {
+        return new Quotes($this->client);
     }
 }
