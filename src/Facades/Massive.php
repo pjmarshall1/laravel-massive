@@ -4,6 +4,7 @@ namespace Pjmarshall1\Massive\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Pjmarshall1\Massive\Resources\Futures;
+use Pjmarshall1\Massive\Resources\Indices;
 use Pjmarshall1\Massive\Resources\Options;
 use Pjmarshall1\Massive\Resources\Stocks;
 
@@ -11,6 +12,7 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static Stocks stocks()
  * @method static Options options()
  * @method static Futures futures()
+ * @method static Indices indices()
  * @method static array<string, mixed> tickerDetails(string $ticker, array $query = [])
  * @method static array<string, mixed> dividends(array $query = [])
  * @method static array<string, mixed> customBars(string $ticker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false)
@@ -78,6 +80,8 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> futuresQuotes(string $ticker, array $query = [], bool $allPages = false)
  * @method static array<string, mixed> futuresMarketStatus(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> futuresExchanges(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> indicesTickers(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> indicesTickerOverview(string $ticker, array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

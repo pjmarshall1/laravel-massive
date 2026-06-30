@@ -12,6 +12,7 @@ use Pjmarshall1\Massive\Exceptions\MassiveRateLimitException;
 use Pjmarshall1\Massive\Exceptions\MassiveRequestException;
 use Pjmarshall1\Massive\Exceptions\UnexpectedMassiveResponseException;
 use Pjmarshall1\Massive\Resources\Futures;
+use Pjmarshall1\Massive\Resources\Indices;
 use Pjmarshall1\Massive\Resources\Options;
 use Pjmarshall1\Massive\Resources\Stocks;
 
@@ -43,6 +44,11 @@ class Massive
     public function futures(): Futures
     {
         return new Futures($this);
+    }
+
+    public function indices(): Indices
+    {
+        return new Indices($this);
     }
 
     /**
@@ -779,6 +785,28 @@ class Massive
     public function futuresExchanges(array $query = [], bool $allPages = false): array
     {
         return $this->futures()->marketOperations()->exchanges($query, $allPages);
+    }
+
+    /**
+     * Retrieve index tickers.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesTickers(array $query = [], bool $allPages = false): array
+    {
+        return $this->indices()->tickers()->allTickers($query, $allPages);
+    }
+
+    /**
+     * Retrieve an index ticker overview.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesTickerOverview(string $ticker, array $query = []): array
+    {
+        return $this->indices()->tickers()->overview($ticker, $query);
     }
 
     /**
