@@ -11,6 +11,7 @@ use Pjmarshall1\Massive\Exceptions\MassiveConnectionException;
 use Pjmarshall1\Massive\Exceptions\MassiveRateLimitException;
 use Pjmarshall1\Massive\Exceptions\MassiveRequestException;
 use Pjmarshall1\Massive\Exceptions\UnexpectedMassiveResponseException;
+use Pjmarshall1\Massive\Resources\Alternative;
 use Pjmarshall1\Massive\Resources\Crypto;
 use Pjmarshall1\Massive\Resources\Economy;
 use Pjmarshall1\Massive\Resources\Forex;
@@ -67,6 +68,11 @@ class Massive
     public function economy(): Economy
     {
         return new Economy($this);
+    }
+
+    public function alternative(): Alternative
+    {
+        return new Alternative($this);
     }
 
     /**
@@ -1412,6 +1418,28 @@ class Massive
     public function economyLaborMarket(array $query = [], bool $allPages = false): array
     {
         return $this->economy()->laborMarket($query, $allPages);
+    }
+
+    /**
+     * Retrieve European consumer spending merchant aggregates.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function alternativeMerchantAggregates(array $query = [], bool $allPages = false): array
+    {
+        return $this->alternative()->merchantAggregates($query, $allPages);
+    }
+
+    /**
+     * Retrieve European consumer spending merchant hierarchy reference data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function alternativeMerchantHierarchy(array $query = [], bool $allPages = false): array
+    {
+        return $this->alternative()->merchantHierarchy($query, $allPages);
     }
 
     /**
