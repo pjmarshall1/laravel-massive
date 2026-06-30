@@ -727,6 +727,17 @@ class Massive
     }
 
     /**
+     * Retrieve futures contract snapshots.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function futuresContractSnapshots(array $query = [], bool $allPages = false): array
+    {
+        return $this->futures()->snapshots()->contractSnapshots($query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

@@ -7,6 +7,7 @@ use Pjmarshall1\Massive\Resources\Futures\Aggregates;
 use Pjmarshall1\Massive\Resources\Futures\Contracts;
 use Pjmarshall1\Massive\Resources\Futures\Products;
 use Pjmarshall1\Massive\Resources\Futures\Schedules;
+use Pjmarshall1\Massive\Resources\Futures\Snapshots;
 
 class Futures
 {
@@ -33,5 +34,10 @@ class Futures
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function snapshots(): Snapshots
+    {
+        return new Snapshots($this->client);
     }
 }
