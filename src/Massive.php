@@ -1029,6 +1029,48 @@ class Massive
     }
 
     /**
+     * Retrieve the latest snapshot for a single crypto ticker.
+     *
+     * @return array<string, mixed>
+     */
+    public function cryptoSingleTickerSnapshot(string $ticker): array
+    {
+        return $this->crypto()->snapshots()->singleTicker($ticker);
+    }
+
+    /**
+     * Retrieve the full market snapshot for crypto tickers.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoFullMarketSnapshot(array $query = []): array
+    {
+        return $this->crypto()->snapshots()->fullMarket($query);
+    }
+
+    /**
+     * Retrieve unified snapshots across supported asset classes.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoUnifiedSnapshot(array $query = [], bool $allPages = false): array
+    {
+        return $this->crypto()->snapshots()->unified($query, $allPages);
+    }
+
+    /**
+     * Retrieve top crypto market movers for a direction.
+     *
+     * @return array<string, mixed>
+     */
+    public function cryptoTopMarketMovers(string $direction): array
+    {
+        return $this->crypto()->snapshots()->topMarketMovers($direction);
+    }
+
+    /**
      * Retrieve real-time currency conversion rates.
      *
      * @param  array<string, mixed>  $query

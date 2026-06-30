@@ -4,6 +4,7 @@ namespace Pjmarshall1\Massive\Resources;
 
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Crypto\Aggregates;
+use Pjmarshall1\Massive\Resources\Crypto\Snapshots;
 use Pjmarshall1\Massive\Resources\Crypto\Tickers;
 
 class Crypto
@@ -21,5 +22,10 @@ class Crypto
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function snapshots(): Snapshots
+    {
+        return new Snapshots($this->client);
     }
 }
