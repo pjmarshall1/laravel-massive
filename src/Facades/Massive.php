@@ -82,6 +82,9 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> futuresExchanges(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> indicesTickers(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> indicesTickerOverview(string $ticker, array $query = [])
+ * @method static array<string, mixed> indicesCustomBars(string $indicesTicker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> indicesPreviousClose(string $indicesTicker)
+ * @method static array<string, mixed> indicesDailyOpenClose(string $indicesTicker, string $date)
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

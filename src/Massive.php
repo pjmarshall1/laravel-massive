@@ -810,6 +810,37 @@ class Massive
     }
 
     /**
+     * Retrieve custom aggregate bars for an index ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesCustomBars(string $indicesTicker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false): array
+    {
+        return $this->indices()->aggregates()->customBars($indicesTicker, $multiplier, $timespan, $from, $to, $query, $allPages);
+    }
+
+    /**
+     * Retrieve the previous close for an index ticker.
+     *
+     * @return array<string, mixed>
+     */
+    public function indicesPreviousClose(string $indicesTicker): array
+    {
+        return $this->indices()->aggregates()->previousClose($indicesTicker);
+    }
+
+    /**
+     * Retrieve daily open and close data for an index ticker.
+     *
+     * @return array<string, mixed>
+     */
+    public function indicesDailyOpenClose(string $indicesTicker, string $date): array
+    {
+        return $this->indices()->aggregates()->dailyOpenClose($indicesTicker, $date);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
