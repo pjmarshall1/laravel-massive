@@ -907,6 +907,28 @@ class Massive
     }
 
     /**
+     * Retrieve upcoming index market holidays.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesMarketHolidays(array $query = []): array
+    {
+        return $this->indices()->marketOperations()->marketHolidays($query);
+    }
+
+    /**
+     * Retrieve the current index market status.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesMarketStatus(array $query = []): array
+    {
+        return $this->indices()->marketOperations()->marketStatus($query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

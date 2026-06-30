@@ -91,6 +91,8 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> indicesEma(string $indicesTicker, array $query = [])
  * @method static array<string, mixed> indicesMacd(string $indicesTicker, array $query = [])
  * @method static array<string, mixed> indicesRsi(string $indicesTicker, array $query = [])
+ * @method static array<string, mixed> indicesMarketHolidays(array $query = [])
+ * @method static array<string, mixed> indicesMarketStatus(array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *
