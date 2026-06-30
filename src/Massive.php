@@ -1108,6 +1108,39 @@ class Massive
     }
 
     /**
+     * Retrieve known forex exchanges.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexExchanges(array $query = []): array
+    {
+        return $this->forex()->marketOperations()->exchanges($query);
+    }
+
+    /**
+     * Retrieve upcoming forex market holidays.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexMarketHolidays(array $query = []): array
+    {
+        return $this->forex()->marketOperations()->marketHolidays($query);
+    }
+
+    /**
+     * Retrieve the current forex market status.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexMarketStatus(array $query = []): array
+    {
+        return $this->forex()->marketOperations()->marketStatus($query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

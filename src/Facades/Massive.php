@@ -111,6 +111,9 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> forexEma(string $fxTicker, array $query = [])
  * @method static array<string, mixed> forexMacd(string $fxTicker, array $query = [])
  * @method static array<string, mixed> forexRsi(string $fxTicker, array $query = [])
+ * @method static array<string, mixed> forexExchanges(array $query = [])
+ * @method static array<string, mixed> forexMarketHolidays(array $query = [])
+ * @method static array<string, mixed> forexMarketStatus(array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

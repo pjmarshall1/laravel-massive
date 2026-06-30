@@ -6,6 +6,7 @@ use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Forex\Aggregates;
 use Pjmarshall1\Massive\Resources\Forex\CurrencyConversion;
 use Pjmarshall1\Massive\Resources\Forex\Indicators;
+use Pjmarshall1\Massive\Resources\Forex\MarketOperations;
 use Pjmarshall1\Massive\Resources\Forex\Quotes;
 use Pjmarshall1\Massive\Resources\Forex\Snapshots;
 use Pjmarshall1\Massive\Resources\Forex\Tickers;
@@ -45,5 +46,10 @@ class Forex
     public function indicators(): Indicators
     {
         return new Indicators($this->client);
+    }
+
+    public function marketOperations(): MarketOperations
+    {
+        return new MarketOperations($this->client);
     }
 }
