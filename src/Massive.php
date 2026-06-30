@@ -1001,6 +1001,48 @@ class Massive
     }
 
     /**
+     * Retrieve the latest snapshot for a single forex ticker.
+     *
+     * @return array<string, mixed>
+     */
+    public function forexSingleTickerSnapshot(string $ticker): array
+    {
+        return $this->forex()->snapshots()->singleTicker($ticker);
+    }
+
+    /**
+     * Retrieve the full market snapshot for forex tickers.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexFullMarketSnapshot(array $query = []): array
+    {
+        return $this->forex()->snapshots()->fullMarket($query);
+    }
+
+    /**
+     * Retrieve unified snapshots across supported asset classes.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexUnifiedSnapshot(array $query = [], bool $allPages = false): array
+    {
+        return $this->forex()->snapshots()->unified($query, $allPages);
+    }
+
+    /**
+     * Retrieve top forex market movers for a direction.
+     *
+     * @return array<string, mixed>
+     */
+    public function forexTopMarketMovers(string $direction): array
+    {
+        return $this->forex()->snapshots()->topMarketMovers($direction);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

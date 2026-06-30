@@ -101,6 +101,10 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> forexCustomBars(string $forexTicker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false)
  * @method static array<string, mixed> forexDailyMarketSummary(string $date, array $query = [])
  * @method static array<string, mixed> forexPreviousClose(string $forexTicker, array $query = [])
+ * @method static array<string, mixed> forexSingleTickerSnapshot(string $ticker)
+ * @method static array<string, mixed> forexFullMarketSnapshot(array $query = [])
+ * @method static array<string, mixed> forexUnifiedSnapshot(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> forexTopMarketMovers(string $direction)
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *
