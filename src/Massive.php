@@ -716,6 +716,17 @@ class Massive
     }
 
     /**
+     * Retrieve aggregate bars for a futures contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function futuresAggregateBars(string $ticker, array $query = [], bool $allPages = false): array
+    {
+        return $this->futures()->aggregates()->aggregateBars($ticker, $query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

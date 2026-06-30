@@ -3,6 +3,7 @@
 namespace Pjmarshall1\Massive\Resources;
 
 use Pjmarshall1\Massive\Massive;
+use Pjmarshall1\Massive\Resources\Futures\Aggregates;
 use Pjmarshall1\Massive\Resources\Futures\Contracts;
 use Pjmarshall1\Massive\Resources\Futures\Products;
 use Pjmarshall1\Massive\Resources\Futures\Schedules;
@@ -27,5 +28,10 @@ class Futures
     public function schedules(): Schedules
     {
         return new Schedules($this->client);
+    }
+
+    public function aggregates(): Aggregates
+    {
+        return new Aggregates($this->client);
     }
 }
