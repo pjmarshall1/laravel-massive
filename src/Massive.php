@@ -968,6 +968,39 @@ class Massive
     }
 
     /**
+     * Retrieve custom aggregate bars for a forex ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexCustomBars(string $forexTicker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false): array
+    {
+        return $this->forex()->aggregates()->customBars($forexTicker, $multiplier, $timespan, $from, $to, $query, $allPages);
+    }
+
+    /**
+     * Retrieve daily market summary bars for all forex tickers.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexDailyMarketSummary(string $date, array $query = []): array
+    {
+        return $this->forex()->aggregates()->dailyMarketSummary($date, $query);
+    }
+
+    /**
+     * Retrieve the previous close for a forex ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexPreviousClose(string $forexTicker, array $query = []): array
+    {
+        return $this->forex()->aggregates()->previousClose($forexTicker, $query);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
