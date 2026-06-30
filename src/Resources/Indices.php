@@ -4,6 +4,7 @@ namespace Pjmarshall1\Massive\Resources;
 
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Indices\Aggregates;
+use Pjmarshall1\Massive\Resources\Indices\Snapshots;
 use Pjmarshall1\Massive\Resources\Indices\Tickers;
 
 class Indices
@@ -21,5 +22,10 @@ class Indices
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function snapshots(): Snapshots
+    {
+        return new Snapshots($this->client);
     }
 }

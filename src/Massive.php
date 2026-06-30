@@ -841,6 +841,28 @@ class Massive
     }
 
     /**
+     * Retrieve snapshots for one or more indices.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesSnapshots(array $query = [], bool $allPages = false): array
+    {
+        return $this->indices()->snapshots()->indices($query, $allPages);
+    }
+
+    /**
+     * Retrieve unified snapshots across supported asset classes.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function indicesUnifiedSnapshot(array $query = [], bool $allPages = false): array
+    {
+        return $this->indices()->snapshots()->unified($query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
