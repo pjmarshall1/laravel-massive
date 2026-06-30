@@ -1043,6 +1043,27 @@ class Massive
     }
 
     /**
+     * Retrieve historical quotes for a forex ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexQuotes(string $fxTicker, array $query = [], bool $allPages = false): array
+    {
+        return $this->forex()->quotes()->historical($fxTicker, $query, $allPages);
+    }
+
+    /**
+     * Retrieve the latest quote for a forex currency pair.
+     *
+     * @return array<string, mixed>
+     */
+    public function forexLastQuote(string $from, string $to): array
+    {
+        return $this->forex()->quotes()->latest($from, $to);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
