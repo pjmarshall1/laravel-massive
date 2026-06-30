@@ -5,6 +5,7 @@ namespace Pjmarshall1\Massive\Resources;
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Options\Aggregates;
 use Pjmarshall1\Massive\Resources\Options\Contracts;
+use Pjmarshall1\Massive\Resources\Options\Indicators;
 use Pjmarshall1\Massive\Resources\Options\Quotes;
 use Pjmarshall1\Massive\Resources\Options\Snapshots;
 use Pjmarshall1\Massive\Resources\Options\Trades;
@@ -39,5 +40,10 @@ class Options
     public function quotes(): Quotes
     {
         return new Quotes($this->client);
+    }
+
+    public function indicators(): Indicators
+    {
+        return new Indicators($this->client);
     }
 }

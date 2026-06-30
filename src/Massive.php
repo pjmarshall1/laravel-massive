@@ -557,6 +557,50 @@ class Massive
     }
 
     /**
+     * Retrieve the simple moving average for an options contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsSma(string $optionsTicker, array $query = []): array
+    {
+        return $this->options()->indicators()->sma($optionsTicker, $query);
+    }
+
+    /**
+     * Retrieve the exponential moving average for an options contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsEma(string $optionsTicker, array $query = []): array
+    {
+        return $this->options()->indicators()->ema($optionsTicker, $query);
+    }
+
+    /**
+     * Retrieve the moving average convergence/divergence for an options contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsMacd(string $optionsTicker, array $query = []): array
+    {
+        return $this->options()->indicators()->macd($optionsTicker, $query);
+    }
+
+    /**
+     * Retrieve the relative strength index for an options contract.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function optionsRsi(string $optionsTicker, array $query = []): array
+    {
+        return $this->options()->indicators()->rsi($optionsTicker, $query);
+    }
+
+    /**
      * Retrieve unified options snapshots.
      *
      * @param  array<string, mixed>  $query
