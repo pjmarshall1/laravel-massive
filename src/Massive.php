@@ -705,6 +705,17 @@ class Massive
     }
 
     /**
+     * Retrieve futures schedules.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function futuresSchedules(array $query = [], bool $allPages = false): array
+    {
+        return $this->futures()->schedules()->allSchedules($query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query
