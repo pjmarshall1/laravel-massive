@@ -191,7 +191,7 @@ $exchanges = Massive::stocks()->marketOperations()->exchanges([
     'asset_class' => 'stocks',
 ]);
 
-$upcomingHolidays = Massive::stocks()->marketOperations()->upcomingHolidays();
+$marketHolidays = Massive::stocks()->marketOperations()->marketHolidays();
 
 $marketStatus = Massive::stocks()->marketOperations()->marketStatus();
 
@@ -385,7 +385,7 @@ $ema = Massive::ema('AAPL');
 $macd = Massive::macd('AAPL');
 $rsi = Massive::rsi('AAPL');
 $exchanges = Massive::exchanges(['asset_class' => 'stocks']);
-$upcomingHolidays = Massive::upcomingHolidays();
+$marketHolidays = Massive::marketHolidays();
 $marketStatus = Massive::marketStatus();
 $conditionCodes = Massive::conditionCodes(['asset_class' => 'stocks']);
 $ipos = Massive::ipos(['ipo_status' => 'new']);

@@ -3,6 +3,10 @@
 namespace Pjmarshall1\Massive\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Http\Client\PendingRequest;
+use Pjmarshall1\Massive\Resources\Alternative;
+use Pjmarshall1\Massive\Resources\Crypto;
+use Pjmarshall1\Massive\Resources\Economy;
 use Pjmarshall1\Massive\Resources\Forex;
 use Pjmarshall1\Massive\Resources\Futures;
 use Pjmarshall1\Massive\Resources\Indices;
@@ -15,6 +19,9 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static Futures futures()
  * @method static Indices indices()
  * @method static Forex forex()
+ * @method static Crypto crypto()
+ * @method static Economy economy()
+ * @method static Alternative alternative()
  * @method static array<string, mixed> tickerDetails(string $ticker, array $query = [])
  * @method static array<string, mixed> dividends(array $query = [])
  * @method static array<string, mixed> customBars(string $ticker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false)
@@ -34,7 +41,7 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> macd(string $ticker, array $query = [])
  * @method static array<string, mixed> rsi(string $ticker, array $query = [])
  * @method static array<string, mixed> exchanges(array $query = [])
- * @method static array<string, mixed> upcomingHolidays(array $query = [])
+ * @method static array<string, mixed> marketHolidays(array $query = [])
  * @method static array<string, mixed> marketStatus(array $query = [])
  * @method static array<string, mixed> conditionCodes(array $query = [])
  * @method static array<string, mixed> ipos(array $query = [], bool $allPages = false)
@@ -114,8 +121,35 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> forexExchanges(array $query = [])
  * @method static array<string, mixed> forexMarketHolidays(array $query = [])
  * @method static array<string, mixed> forexMarketStatus(array $query = [])
+ * @method static array<string, mixed> cryptoTickers(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> cryptoTickerOverview(string $ticker, array $query = [])
+ * @method static array<string, mixed> cryptoCustomBars(string $cryptoTicker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> cryptoDailyMarketSummary(string $date, array $query = [])
+ * @method static array<string, mixed> cryptoDailyTickerSummary(string $from, string $to, string $date, array $query = [])
+ * @method static array<string, mixed> cryptoPreviousClose(string $cryptoTicker, array $query = [])
+ * @method static array<string, mixed> cryptoSingleTickerSnapshot(string $ticker)
+ * @method static array<string, mixed> cryptoFullMarketSnapshot(array $query = [])
+ * @method static array<string, mixed> cryptoUnifiedSnapshot(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> cryptoTopMarketMovers(string $direction)
+ * @method static array<string, mixed> cryptoTrades(string $cryptoTicker, array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> cryptoLatestTrade(string $from, string $to, array $query = [])
+ * @method static array<string, mixed> cryptoSma(string $cryptoTicker, array $query = [])
+ * @method static array<string, mixed> cryptoEma(string $cryptoTicker, array $query = [])
+ * @method static array<string, mixed> cryptoMacd(string $cryptoTicker, array $query = [])
+ * @method static array<string, mixed> cryptoRsi(string $cryptoTicker, array $query = [])
+ * @method static array<string, mixed> cryptoExchanges(array $query = [])
+ * @method static array<string, mixed> cryptoMarketHolidays(array $query = [])
+ * @method static array<string, mixed> cryptoMarketStatus(array $query = [])
+ * @method static array<string, mixed> cryptoConditionCodes(array $query = [])
+ * @method static array<string, mixed> economyTreasuryYields(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> economyInflation(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> economyInflationExpectations(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> economyLaborMarket(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> alternativeMerchantAggregates(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> alternativeMerchantHierarchy(array $query = [], bool $allPages = false)
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
+ * @method static PendingRequest request()
  *
  * @see \Pjmarshall1\Massive\Massive
  */

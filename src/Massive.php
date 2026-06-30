@@ -290,9 +290,9 @@ class Massive
      * @param  array<string, mixed>  $query
      * @return array<string, mixed>
      */
-    public function upcomingHolidays(array $query = []): array
+    public function marketHolidays(array $query = []): array
     {
-        return $this->stocks()->marketOperations()->upcomingHolidays($query);
+        return $this->stocks()->marketOperations()->marketHolidays($query);
     }
 
     /**

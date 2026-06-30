@@ -28,7 +28,7 @@ class MarketOperations
      * @param  array<string, mixed>  $query
      * @return array<string, mixed>
      */
-    public function upcomingHolidays(array $query = []): array
+    public function marketHolidays(array $query = []): array
     {
         return $this->client->get('/v1/marketstatus/upcoming', $query);
     }
