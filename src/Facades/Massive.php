@@ -3,6 +3,7 @@
 namespace Pjmarshall1\Massive\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Pjmarshall1\Massive\Resources\Forex;
 use Pjmarshall1\Massive\Resources\Futures;
 use Pjmarshall1\Massive\Resources\Indices;
 use Pjmarshall1\Massive\Resources\Options;
@@ -13,6 +14,7 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static Options options()
  * @method static Futures futures()
  * @method static Indices indices()
+ * @method static Forex forex()
  * @method static array<string, mixed> tickerDetails(string $ticker, array $query = [])
  * @method static array<string, mixed> dividends(array $query = [])
  * @method static array<string, mixed> customBars(string $ticker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false)
@@ -93,6 +95,8 @@ use Pjmarshall1\Massive\Resources\Stocks;
  * @method static array<string, mixed> indicesRsi(string $indicesTicker, array $query = [])
  * @method static array<string, mixed> indicesMarketHolidays(array $query = [])
  * @method static array<string, mixed> indicesMarketStatus(array $query = [])
+ * @method static array<string, mixed> forexTickers(array $query = [], bool $allPages = false)
+ * @method static array<string, mixed> forexTickerOverview(string $ticker, array $query = [])
  * @method static array<string, mixed> get(string $path, array $query = [])
  * @method static array<string, mixed> getAllPages(string $path, array $query = [], string $resultsKey = 'results')
  *

@@ -11,6 +11,7 @@ use Pjmarshall1\Massive\Exceptions\MassiveConnectionException;
 use Pjmarshall1\Massive\Exceptions\MassiveRateLimitException;
 use Pjmarshall1\Massive\Exceptions\MassiveRequestException;
 use Pjmarshall1\Massive\Exceptions\UnexpectedMassiveResponseException;
+use Pjmarshall1\Massive\Resources\Forex;
 use Pjmarshall1\Massive\Resources\Futures;
 use Pjmarshall1\Massive\Resources\Indices;
 use Pjmarshall1\Massive\Resources\Options;
@@ -49,6 +50,11 @@ class Massive
     public function indices(): Indices
     {
         return new Indices($this);
+    }
+
+    public function forex(): Forex
+    {
+        return new Forex($this);
     }
 
     /**
@@ -926,6 +932,28 @@ class Massive
     public function indicesMarketStatus(array $query = []): array
     {
         return $this->indices()->marketOperations()->marketStatus($query);
+    }
+
+    /**
+     * Retrieve forex tickers.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexTickers(array $query = [], bool $allPages = false): array
+    {
+        return $this->forex()->tickers()->allTickers($query, $allPages);
+    }
+
+    /**
+     * Retrieve a forex ticker overview.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function forexTickerOverview(string $ticker, array $query = []): array
+    {
+        return $this->forex()->tickers()->overview($ticker, $query);
     }
 
     /**
