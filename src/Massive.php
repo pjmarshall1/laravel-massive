@@ -1093,6 +1093,50 @@ class Massive
     }
 
     /**
+     * Retrieve the simple moving average for a crypto ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoSma(string $cryptoTicker, array $query = []): array
+    {
+        return $this->crypto()->indicators()->sma($cryptoTicker, $query);
+    }
+
+    /**
+     * Retrieve the exponential moving average for a crypto ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoEma(string $cryptoTicker, array $query = []): array
+    {
+        return $this->crypto()->indicators()->ema($cryptoTicker, $query);
+    }
+
+    /**
+     * Retrieve the moving average convergence/divergence for a crypto ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoMacd(string $cryptoTicker, array $query = []): array
+    {
+        return $this->crypto()->indicators()->macd($cryptoTicker, $query);
+    }
+
+    /**
+     * Retrieve the relative strength index for a crypto ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoRsi(string $cryptoTicker, array $query = []): array
+    {
+        return $this->crypto()->indicators()->rsi($cryptoTicker, $query);
+    }
+
+    /**
      * Retrieve real-time currency conversion rates.
      *
      * @param  array<string, mixed>  $query
