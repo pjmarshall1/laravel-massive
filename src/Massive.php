@@ -985,6 +985,50 @@ class Massive
     }
 
     /**
+     * Retrieve custom aggregate bars for a crypto ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoCustomBars(string $cryptoTicker, int $multiplier, string $timespan, string $from, string $to, array $query = [], bool $allPages = false): array
+    {
+        return $this->crypto()->aggregates()->customBars($cryptoTicker, $multiplier, $timespan, $from, $to, $query, $allPages);
+    }
+
+    /**
+     * Retrieve daily market summary bars for all crypto tickers.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoDailyMarketSummary(string $date, array $query = []): array
+    {
+        return $this->crypto()->aggregates()->dailyMarketSummary($date, $query);
+    }
+
+    /**
+     * Retrieve the daily open and close summary for a crypto pair.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoDailyTickerSummary(string $from, string $to, string $date, array $query = []): array
+    {
+        return $this->crypto()->aggregates()->dailyTickerSummary($from, $to, $date, $query);
+    }
+
+    /**
+     * Retrieve the previous close for a crypto ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoPreviousClose(string $cryptoTicker, array $query = []): array
+    {
+        return $this->crypto()->aggregates()->previousClose($cryptoTicker, $query);
+    }
+
+    /**
      * Retrieve real-time currency conversion rates.
      *
      * @param  array<string, mixed>  $query
