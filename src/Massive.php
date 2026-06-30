@@ -12,6 +12,7 @@ use Pjmarshall1\Massive\Exceptions\MassiveRateLimitException;
 use Pjmarshall1\Massive\Exceptions\MassiveRequestException;
 use Pjmarshall1\Massive\Exceptions\UnexpectedMassiveResponseException;
 use Pjmarshall1\Massive\Resources\Crypto;
+use Pjmarshall1\Massive\Resources\Economy;
 use Pjmarshall1\Massive\Resources\Forex;
 use Pjmarshall1\Massive\Resources\Futures;
 use Pjmarshall1\Massive\Resources\Indices;
@@ -61,6 +62,11 @@ class Massive
     public function crypto(): Crypto
     {
         return new Crypto($this);
+    }
+
+    public function economy(): Economy
+    {
+        return new Economy($this);
     }
 
     /**
@@ -1362,6 +1368,50 @@ class Massive
     public function forexMarketStatus(array $query = []): array
     {
         return $this->forex()->marketOperations()->marketStatus($query);
+    }
+
+    /**
+     * Retrieve treasury yield data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function economyTreasuryYields(array $query = [], bool $allPages = false): array
+    {
+        return $this->economy()->treasuryYields($query, $allPages);
+    }
+
+    /**
+     * Retrieve inflation data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function economyInflation(array $query = [], bool $allPages = false): array
+    {
+        return $this->economy()->inflation($query, $allPages);
+    }
+
+    /**
+     * Retrieve inflation expectation data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function economyInflationExpectations(array $query = [], bool $allPages = false): array
+    {
+        return $this->economy()->inflationExpectations($query, $allPages);
+    }
+
+    /**
+     * Retrieve labor market data.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function economyLaborMarket(array $query = [], bool $allPages = false): array
+    {
+        return $this->economy()->laborMarket($query, $allPages);
     }
 
     /**
