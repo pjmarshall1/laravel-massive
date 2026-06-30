@@ -1137,6 +1137,50 @@ class Massive
     }
 
     /**
+     * Retrieve known crypto exchanges.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoExchanges(array $query = []): array
+    {
+        return $this->crypto()->marketOperations()->exchanges($query);
+    }
+
+    /**
+     * Retrieve upcoming crypto market holidays.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoMarketHolidays(array $query = []): array
+    {
+        return $this->crypto()->marketOperations()->marketHolidays($query);
+    }
+
+    /**
+     * Retrieve the current crypto market status.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoMarketStatus(array $query = []): array
+    {
+        return $this->crypto()->marketOperations()->marketStatus($query);
+    }
+
+    /**
+     * Retrieve crypto trade condition codes.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoConditionCodes(array $query = []): array
+    {
+        return $this->crypto()->marketOperations()->conditionCodes($query);
+    }
+
+    /**
      * Retrieve real-time currency conversion rates.
      *
      * @param  array<string, mixed>  $query
