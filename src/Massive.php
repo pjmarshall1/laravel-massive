@@ -694,6 +694,17 @@ class Massive
     }
 
     /**
+     * Retrieve futures products.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function futuresProducts(array $query = [], bool $allPages = false): array
+    {
+        return $this->futures()->products()->allProducts($query, $allPages);
+    }
+
+    /**
      * Send a GET request to a Massive REST endpoint.
      *
      * @param  array<string, mixed>  $query

@@ -4,6 +4,7 @@ namespace Pjmarshall1\Massive\Resources;
 
 use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Futures\Contracts;
+use Pjmarshall1\Massive\Resources\Futures\Products;
 
 class Futures
 {
@@ -15,5 +16,10 @@ class Futures
     public function contracts(): Contracts
     {
         return new Contracts($this->client);
+    }
+
+    public function products(): Products
+    {
+        return new Products($this->client);
     }
 }
