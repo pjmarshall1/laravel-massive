@@ -6,6 +6,7 @@ use Pjmarshall1\Massive\Massive;
 use Pjmarshall1\Massive\Resources\Crypto\Aggregates;
 use Pjmarshall1\Massive\Resources\Crypto\Snapshots;
 use Pjmarshall1\Massive\Resources\Crypto\Tickers;
+use Pjmarshall1\Massive\Resources\Crypto\Trades;
 
 class Crypto
 {
@@ -27,5 +28,10 @@ class Crypto
     public function snapshots(): Snapshots
     {
         return new Snapshots($this->client);
+    }
+
+    public function trades(): Trades
+    {
+        return new Trades($this->client);
     }
 }

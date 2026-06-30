@@ -1071,6 +1071,28 @@ class Massive
     }
 
     /**
+     * Retrieve historical trades for a crypto ticker.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoTrades(string $cryptoTicker, array $query = [], bool $allPages = false): array
+    {
+        return $this->crypto()->trades()->historical($cryptoTicker, $query, $allPages);
+    }
+
+    /**
+     * Retrieve the latest trade for a crypto pair.
+     *
+     * @param  array<string, mixed>  $query
+     * @return array<string, mixed>
+     */
+    public function cryptoLatestTrade(string $from, string $to, array $query = []): array
+    {
+        return $this->crypto()->trades()->latest($from, $to, $query);
+    }
+
+    /**
      * Retrieve real-time currency conversion rates.
      *
      * @param  array<string, mixed>  $query
