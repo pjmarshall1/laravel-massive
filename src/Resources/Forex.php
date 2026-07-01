@@ -9,6 +9,7 @@ use Pjmarshall1\Massive\Resources\Forex\Indicators;
 use Pjmarshall1\Massive\Resources\Forex\MarketOperations;
 use Pjmarshall1\Massive\Resources\Forex\Quotes;
 use Pjmarshall1\Massive\Resources\Forex\Snapshots;
+use Pjmarshall1\Massive\Resources\Forex\Stream;
 use Pjmarshall1\Massive\Resources\Forex\Tickers;
 
 class Forex
@@ -31,6 +32,11 @@ class Forex
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function stream(): Stream
+    {
+        return new Stream($this->client);
     }
 
     public function snapshots(): Snapshots
