@@ -4,6 +4,16 @@ namespace Pjmarshall1\Massive\Resources\Stocks\Stream;
 
 class RealTime
 {
+    public function __construct(protected string $url)
+    {
+        //
+    }
+
+    public function url(): string
+    {
+        return $this->url;
+    }
+
     /**
      * @param  array<int, string>|string  $tickers
      */

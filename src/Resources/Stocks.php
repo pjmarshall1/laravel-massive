@@ -35,7 +35,7 @@ class Stocks
 
     public function stream(): Stream
     {
-        return new Stream;
+        return new Stream($this->client);
     }
 
     public function snapshots(): Snapshots

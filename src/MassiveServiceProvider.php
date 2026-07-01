@@ -13,6 +13,9 @@ class MassiveServiceProvider extends ServiceProvider
         $this->app->singleton(Massive::class, fn (): Massive => new Massive(
             apiKey: config('massive.api_key'),
             baseUrl: config('massive.base_url'),
+            streamUrl: config('massive.stream_url'),
+            delayedStreamUrl: config('massive.delayed_stream_url'),
+            businessStreamUrl: config('massive.business_stream_url'),
             timeout: config('massive.timeout'),
             connectTimeout: config('massive.connect_timeout'),
             retryDelays: config('massive.retry_delays'),

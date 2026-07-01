@@ -9,6 +9,7 @@ use Pjmarshall1\Massive\Resources\Options\Indicators;
 use Pjmarshall1\Massive\Resources\Options\MarketOperations;
 use Pjmarshall1\Massive\Resources\Options\Quotes;
 use Pjmarshall1\Massive\Resources\Options\Snapshots;
+use Pjmarshall1\Massive\Resources\Options\Stream;
 use Pjmarshall1\Massive\Resources\Options\Trades;
 
 class Options
@@ -26,6 +27,11 @@ class Options
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function stream(): Stream
+    {
+        return new Stream($this->client);
     }
 
     public function snapshots(): Snapshots

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pjmarshall1\Massive\Resources\Stocks\Stream;
+namespace Pjmarshall1\Massive\Resources\Options\Stream;
 
 class Delayed
 {

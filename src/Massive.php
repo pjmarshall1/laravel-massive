@@ -28,6 +28,9 @@ class Massive
     public function __construct(
         protected ?string $apiKey,
         protected string $baseUrl,
+        protected string $streamUrl,
+        protected string $delayedStreamUrl,
+        protected string $businessStreamUrl,
         protected int $timeout,
         protected int $connectTimeout,
         protected array $retryDelays,
@@ -73,6 +76,26 @@ class Massive
     public function alternative(): Alternative
     {
         return new Alternative($this);
+    }
+
+    public function streamUrl(string $assetClass): string
+    {
+        return $this->webSocketUrl($this->streamUrl, $assetClass);
+    }
+
+    public function delayedStreamUrl(string $assetClass): string
+    {
+        return $this->webSocketUrl($this->delayedStreamUrl, $assetClass);
+    }
+
+    public function businessStreamUrl(string $assetClass): string
+    {
+        return $this->webSocketUrl($this->businessStreamUrl, $assetClass);
+    }
+
+    protected function webSocketUrl(string $baseUrl, string $assetClass): string
+    {
+        return rtrim($baseUrl, '/').'/'.ltrim($assetClass, '/');
     }
 
     /**
