@@ -7,6 +7,7 @@ use Pjmarshall1\Massive\Resources\Crypto\Aggregates;
 use Pjmarshall1\Massive\Resources\Crypto\Indicators;
 use Pjmarshall1\Massive\Resources\Crypto\MarketOperations;
 use Pjmarshall1\Massive\Resources\Crypto\Snapshots;
+use Pjmarshall1\Massive\Resources\Crypto\Stream;
 use Pjmarshall1\Massive\Resources\Crypto\Tickers;
 use Pjmarshall1\Massive\Resources\Crypto\Trades;
 
@@ -25,6 +26,11 @@ class Crypto
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function stream(): Stream
+    {
+        return new Stream($this->client);
     }
 
     public function snapshots(): Snapshots
