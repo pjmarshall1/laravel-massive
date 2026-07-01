@@ -7,6 +7,7 @@ use Pjmarshall1\Massive\Resources\Indices\Aggregates;
 use Pjmarshall1\Massive\Resources\Indices\Indicators;
 use Pjmarshall1\Massive\Resources\Indices\MarketOperations;
 use Pjmarshall1\Massive\Resources\Indices\Snapshots;
+use Pjmarshall1\Massive\Resources\Indices\Stream;
 use Pjmarshall1\Massive\Resources\Indices\Tickers;
 
 class Indices
@@ -24,6 +25,11 @@ class Indices
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function stream(): Stream
+    {
+        return new Stream($this->client);
     }
 
     public function snapshots(): Snapshots
