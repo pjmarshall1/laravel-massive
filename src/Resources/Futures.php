@@ -10,6 +10,7 @@ use Pjmarshall1\Massive\Resources\Futures\Products;
 use Pjmarshall1\Massive\Resources\Futures\Quotes;
 use Pjmarshall1\Massive\Resources\Futures\Schedules;
 use Pjmarshall1\Massive\Resources\Futures\Snapshots;
+use Pjmarshall1\Massive\Resources\Futures\Stream;
 use Pjmarshall1\Massive\Resources\Futures\Trades;
 
 class Futures
@@ -37,6 +38,11 @@ class Futures
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function stream(): Stream
+    {
+        return new Stream($this->client);
     }
 
     public function snapshots(): Snapshots
