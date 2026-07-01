@@ -12,6 +12,7 @@ use Pjmarshall1\Massive\Resources\Stocks\MarketOperations;
 use Pjmarshall1\Massive\Resources\Stocks\News;
 use Pjmarshall1\Massive\Resources\Stocks\Quotes;
 use Pjmarshall1\Massive\Resources\Stocks\Snapshots;
+use Pjmarshall1\Massive\Resources\Stocks\Stream;
 use Pjmarshall1\Massive\Resources\Stocks\Tickers;
 use Pjmarshall1\Massive\Resources\Stocks\Trades;
 
@@ -30,6 +31,11 @@ class Stocks
     public function aggregates(): Aggregates
     {
         return new Aggregates($this->client);
+    }
+
+    public function stream(): Stream
+    {
+        return new Stream;
     }
 
     public function snapshots(): Snapshots
